@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/the-momo-bar-sangamner/static/css/main.bea3a86f.css",
-    "main.js": "/the-momo-bar-sangamner/static/js/main.358821e9.js",
+    "main.js": "/the-momo-bar-sangamner/static/js/main.105959c7.js",
     "static/js/453.ac766abd.chunk.js": "/the-momo-bar-sangamner/static/js/453.ac766abd.chunk.js",
     "index.html": "/the-momo-bar-sangamner/index.html",
     "main.bea3a86f.css.map": "/the-momo-bar-sangamner/static/css/main.bea3a86f.css.map",
-    "main.358821e9.js.map": "/the-momo-bar-sangamner/static/js/main.358821e9.js.map",
+    "main.105959c7.js.map": "/the-momo-bar-sangamner/static/js/main.105959c7.js.map",
     "453.ac766abd.chunk.js.map": "/the-momo-bar-sangamner/static/js/453.ac766abd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bea3a86f.css",
-    "static/js/main.358821e9.js"
+    "static/js/main.105959c7.js"
   ]
 }
