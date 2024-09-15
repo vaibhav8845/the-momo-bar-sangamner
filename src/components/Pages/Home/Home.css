@@ -1,0 +1,40 @@
+/* MomosCraving.css */
+
+.momos-section {
+    background-color: #000;
+    color: #fff;
+    padding: 40px;
+  }
+  
+  .momos-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .momos-description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .get-inquiry-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none
+  }
+  
+  .get-inquiry-button:hover {
+    background-color: #218838;
+  }
+  
+  .carousel-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  

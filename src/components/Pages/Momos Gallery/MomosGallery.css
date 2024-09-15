@@ -1,0 +1,43 @@
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Fixed 3 columns */
+    grid-auto-rows: auto; /* Automatic row sizing */
+    gap: 70px;
+    padding: 20px;
+  }
+  .Momos-title{
+    color: white;
+    font-size: 26px;
+    display: inline-block;
+    padding: 30px 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .image-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .image-grid img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* For medium-sized screens */
+  @media screen and (max-width: 768px) {
+    .image-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+    }
+  }
+  
+  /* For small screens (mobile devices) */
+  @media screen and (max-width: 480px) {
+    .image-grid {
+      grid-template-columns: repeat(1, 1fr); /* 1 column for mobile */
+    }
+  }
+  
