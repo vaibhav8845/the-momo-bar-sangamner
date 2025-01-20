@@ -2,13 +2,17 @@
 
 
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import './ContactUs.css'; // Import the CSS file for styling
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa'; // Import icons from react-icons
 
 const ContactUs = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="contact-container mt-5">
+    <div className="contact-container mt-5 pt-5">
       <h1 className="contact-title">CONTACT WITH US</h1>
       <div className="contact-wrapper">
         {/* Contact Form Section */}

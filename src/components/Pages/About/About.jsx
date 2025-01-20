@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import "./About.css"; // Import the CSS file
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section className="about-us-section ">
               <h3 className="about-title container-fluid">ABOUT US</h3>
@@ -30,7 +34,7 @@ const About = () => {
         {/* Right Image Section */}
         <div className="about-image">
           <img
-            src="jkl.png" // Replace with your actual image path
+            src="https://i.postimg.cc/NG3kDpxv/jkl.png" // Replace with your actual image path
             alt="Chef Illustration"
           />
         </div>

@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Carousel, Button, Container, Row, Col } from 'react-bootstrap';
 import './Home.css'; // Import the external CSS
+import About from '../About/About';
+import MomosGallery from '../Momos Gallery/MomosGallery';
+import Menu from '../Menu/Menu';
+import OurStory from '../OurStory/OurStory';
+import ContactUs from '../Contact Us/ContactUs';
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
+    <>
     <Container fluid className="momos-section mt-5">
       <Row className="align-items-center">
         <Col md={6} className="text-center text-md-start mb-4 mb-md-0">
@@ -22,21 +32,21 @@ const Home = () => {
             <Carousel.Item>
               <img
                 className="carousel-image"
-                src="\—Pngtree—nepal food momo dumpling_14703266.png" // Replace with your image
+                src="https://i.postimg.cc/Fsb3ZmR0/Pngtree-nepal-food-momo-dumpling-14703266.png" // Replace with your image
                 alt="Momos"
               />
             </Carousel.Item>
             <Carousel.Item>
               <img
                 className="carousel-image"
-                src="\—Pngtree—fresh steam momos_8987007.png" // Replace with your image
+                src="https://i.postimg.cc/L8HfQ7Yw/Pngtree-fresh-steam-momos-8987007.png" // Replace with your image
                 alt="Momos"
               />
             </Carousel.Item>
             <Carousel.Item>
               <img
                 className="carousel-image"
-                src="\—Pngtree—nepal food momo dumpling_14703266.png" // Replace with your image
+                src="https://i.postimg.cc/Fsb3ZmR0/Pngtree-nepal-food-momo-dumpling-14703266.png" // Replace with your image
                 alt="Momos"
               />
             </Carousel.Item>
@@ -44,6 +54,14 @@ const Home = () => {
         </Col>
       </Row>
     </Container>
+    <About/>
+    <Menu/>
+  
+    <MomosGallery/>
+    <OurStory/>
+    <ContactUs/>
+
+    </>
   );
 };
 

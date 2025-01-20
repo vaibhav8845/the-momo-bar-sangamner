@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import "./OurStory.css"; // Import the CSS file for styling
 
 const OurStory = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section className="our-story mt-3">
       <div className="story-content">
         <div className="image-container">
           <img
-            src="\half_gradient_momo1.webp" // Replace with your image path
+            src="https://i.postimg.cc/NG9xRWmx/half-gradient-momo1.webp" // Replace with your image path
             alt="Momos in a basket"
             className="story-image"
           />

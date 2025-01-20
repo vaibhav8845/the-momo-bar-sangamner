@@ -1,0 +1,146 @@
+/* Order Form Container */
+.order-form-container {
+    max-width: 500px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.order-form-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form Layout */
+.order-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Form Group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Input and Select Styling */
+input, select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    margin-top: 5px;
+    transition: border-color 0.3s;
+}
+
+/* Input Focus */
+input:focus, select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Submit and Reset Buttons */
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    width: 100%;
+    margin: 10px auto;
+}
+
+/* Submit Button */
+.submit-button {
+    background-color: #4CAF50;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+/* Reset Button */
+.reset-button {
+    background-color: #f44336;
+}
+
+.reset-button:hover {
+    background-color: #e53935;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .order-form-container {
+        padding: 15px;
+        margin: 10px auto;
+    }
+
+    .order-form-title {
+        font-size: 20px;
+    }
+
+    .order-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+
+    input, select {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .submit-button {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .reset-button {
+        padding: 10px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .order-form-container {
+        padding: 10px;
+        margin: 5px auto;
+    }
+
+    .order-form-title {
+        font-size: 18px;
+    }
+
+    .form-group label {
+        font-size: 12px;
+    }
+
+    input, select {
+        font-size: 13px;
+        padding: 6px;
+    }
+
+    .submit-button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .reset-button {
+        padding: 8px;
+        font-size: 14px;
+    }
+}

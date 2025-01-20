@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Menu.css'; // Import the CSS file for styling
 
 const Menu = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="menu-container mt-5">
       <h1 className="menu-title container-fluid">OUR MENU</h1>

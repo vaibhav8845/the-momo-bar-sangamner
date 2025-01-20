@@ -69,7 +69,7 @@ const Footer = () => {
       {/* Footer Bottom */}
       <div className="footer-bottom">
         <p>
-          2021 © Marky Momos All Rights Reserved. Design By{' '}
+          2024 © the momo bar sangamner All Rights Reserved. Design By {'Vaibhav Sonawane'}
           {/* <a href="">Petpooja</a>. */}
         </p>
       </div>
