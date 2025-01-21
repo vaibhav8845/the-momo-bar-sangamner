@@ -85,7 +85,7 @@ const OrderForm = () => {
     };
 
     // Send POST request to the backend API
-    axios.post('http://localhost:5000/api/orders', orderData)
+    axios.post('https://shop-8f8o.onrender.com/api/orders', orderData)
       .then(response => {
         alert('Order placed successfully!');
         handleReset();  // Reset the form after successful submission

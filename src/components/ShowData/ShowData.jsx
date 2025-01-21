@@ -10,7 +10,7 @@ function ShowData() {
   // Fetch orders data from the backend
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/show') // Replace with your API URL
+      .get('https://shop-8f8o.onrender.com/api/show') // Replace with your API URL
       .then((response) => {
         setOrders(response.data); // Set the fetched data to the state
       })
