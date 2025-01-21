@@ -9,70 +9,74 @@ function Navbar() {
     const navbarCollapse = document.querySelector('.navbar-collapse');
 
     if (navbarToggler && navbarCollapse.classList.contains('show')) {
-      navbarToggler.click(); // Programmatically clicks the toggler to close the navbar
+      navbarToggler.click(); // Close navbar after clicking a link
     }
   };
 
   return (
     <nav className="navbar navbar-expand-lg fixed-top navbar-light">
-      <Link className="navbar-brand ml-4" to="/">The Momo Bar Sangamner</Link>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav mx-auto">
-          <li className="nav-item mx-2">
-            <Link className="nav-link" to="/" onClick={handleNavItemClick}>Home</Link>
-          </li>
-          <li className="nav-item mx-2">
-            <Link className="nav-link" to="/about" onClick={handleNavItemClick}>About</Link>
-          </li>
-          <li className="nav-item mx-2">
-            <Link className="nav-link" to="/menu" onClick={handleNavItemClick}>Menu</Link>
-          </li>
-          <li className="nav-item mx-2">
-            <Link className="nav-link" to="/momosGallery" onClick={handleNavItemClick}>Momos Gallery</Link>
-          </li>
-          <li className="nav-item mx-2">
-            <Link className="nav-link" to="/ourStory" onClick={handleNavItemClick}>Our Story</Link>
-          </li>
-        </ul>
-        <div className="d-flex mt-2 mt-lg-0">
-          <Link to="/contactUS">
-            <button
-              type="button"
-              className="btn btn-primary py-2 mx-2 w-60 rounded shadow-sm"
-              onClick={handleNavItemClick}
-            >
-              Contact Us
-            </button>
-          </Link>
-          <Link to="/login">
-            <button
-              type="button"
-              className="btn btn-primary py-2 mx-2 w-60 rounded shadow-sm"
-              onClick={handleNavItemClick}
-            >
-              Login
-            </button>
-          </Link>
-          <Link to="/showdata">
-            <button
-              type="button"
-              className="btn btn-primary py-2 mx-2 w-60 rounded shadow-sm"
-              onClick={handleNavItemClick}
-            >
-              Show all Data
-            </button>
-          </Link>
+      <div className="container">
+        <Link className="navbar-brand" to="/">
+          The Momo Bar Sangamner
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon">☰</span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav mx-auto">
+            <li className="nav-item mx-2">
+              <Link className="nav-link" to="/" onClick={handleNavItemClick}>Home</Link>
+            </li>
+            <li className="nav-item mx-2">
+              <Link className="nav-link" to="/about" onClick={handleNavItemClick}>About</Link>
+            </li>
+            <li className="nav-item mx-2">
+              <Link className="nav-link" to="/menu" onClick={handleNavItemClick}>Menu</Link>
+            </li>
+            <li className="nav-item mx-2">
+              <Link className="nav-link" to="/momosGallery" onClick={handleNavItemClick}>Momos Gallery</Link>
+            </li>
+            <li className="nav-item mx-2">
+              <Link className="nav-link" to="/ourStory" onClick={handleNavItemClick}>Our Story</Link>
+            </li>
+          </ul>
+          <div className="d-flex mt-2 mt-lg-0">
+            <Link to="/contactUS">
+              <button
+                type="button"
+                className="btn btn-primary py-2 mx-2 rounded shadow-sm"
+                onClick={handleNavItemClick}
+              >
+                Contact Us
+              </button>
+            </Link>
+            <Link to="/login">
+              <button
+                type="button"
+                className="btn btn-primary py-2 mx-2 rounded shadow-sm"
+                onClick={handleNavItemClick}
+              >
+                Login
+              </button>
+            </Link>
+            <Link to="/showdata">
+              <button
+                type="button"
+                className="btn btn-primary py-2 mx-2 rounded shadow-sm"
+                onClick={handleNavItemClick}
+              >
+                Show all Data
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </nav>

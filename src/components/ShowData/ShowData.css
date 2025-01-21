@@ -1,128 +1,109 @@
 /* Container */
 .table-container {
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow-x: auto; /* Ensure horizontal scrolling for small screens */
+  margin: 20px auto; /* Center the container */
+  padding: 20px;
+  max-width: 1200px; /* Set a maximum width for larger screens */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow-x: auto; /* Ensure horizontal scrolling for small screens */
+  background-color: #fff; /* Add background for better readability */
+}
+
+/* Table */
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px; /* Increase font size for readability */
+}
+
+/* Table headers and cells */
+.order-table th,
+.order-table td {
+  padding: 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* Sticky header */
+.order-table th {
+  background-color: black;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Zebra-striping for rows */
+.order-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.order-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Final total */
+.final-total {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Download button */
+.download-btn-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.download-btn {
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.download-btn:hover {
+  background-color: #45a049;
+}
+
+/* Responsive Styling */
+
+/* For tablets and below (max-width: 768px) */
+@media (max-width: 768px) {
+  .order-table th, .order-table td {
+    padding: 10px;
+    font-size: 14px;
   }
-  
-  /* Table */
-  .order-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  /* Table headers and cells */
-  .order-table th,
-  .order-table td {
-    padding: 15px;  /* Increase padding for better readability */
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  
-  /* Sticky header */
-  .order-table th {
-    background-color: black;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1; /* Ensure it's above the content */
-  }
-  
-  /* Zebra-striping for rows */
-  .order-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .order-table tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  /* Final total */
-  .final-total {
-    margin-top: 20px;
-  }
-  
-  /* Download button */
-  .download-btn-container {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
+
   .download-btn {
-    padding: 10px 20px;
+    width: 100%;
     font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
   }
-  
-  .download-btn:hover {
-    background-color: #45a049;
+
+  .final-total {
+    font-size: 18px;
   }
-  
-  /* Responsive Styling */
-  
-  /* For tablets and below (max-width: 768px) */
-  @media (max-width: 768px) {
-    .order-table th, .order-table td {
-      padding: 10px; /* Adjust padding */
-      font-size: 14px; /* Smaller font size */
-    }
-  
-    .download-btn {
-      width: 100%; /* Full width button */
-      padding: 12px 20px;
-      font-size: 18px;
-    }
-  
-    .final-total {
-      font-size: 16px;
-    }
-  
-    /* Make table scrollable horizontally on smaller screens */
-    .table-container {
-      overflow-x: auto;
-    }
+}
+
+/* For small screens (max-width: 576px) */
+@media (max-width: 576px) {
+  .order-table {
+    font-size: 12px;
   }
-  
-  /* For small screens (max-width: 576px) */
-  @media (max-width: 576px) {
-    .order-table {
-      font-size: 12px; /* Reduce font size for small screens */
-    }
-  
-    .table-container {
-      padding: 15px; /* Reduced padding for small screens */
-    }
-  
-    .download-btn {
-      padding: 10px 15px; /* Adjust button padding */
-      font-size: 16px; /* Adjust button font size */
-    }
-  
-    .final-total {
-      font-size: 14px; /* Smaller font size for total */
-    }
+
+  .table-container {
+    padding: 15px;
   }
-  
-  /* For very small screens (max-width: 400px) */
-  @media (max-width: 400px) {
-    .order-table th, .order-table td {
-      font-size: 12px; /* Smaller font size for very small screens */
-      padding: 8px; /* Adjust padding */
-    }
-  
-    .download-btn {
-      font-size: 14px; /* Smaller font size */
-      padding: 10px 15px;
-    }
-  
-    .final-total {
-      font-size: 12px; /* Adjust total font size */
-    }
+
+  .download-btn {
+    font-size: 14px;
   }
-  
+
+  .final-total {
+    font-size: 16px;
+  }
+}
