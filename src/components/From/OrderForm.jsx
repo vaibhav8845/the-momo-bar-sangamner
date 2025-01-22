@@ -105,7 +105,7 @@ const OrderForm = () => {
     <>
           <ToastContainer />
 
-      <div className='mt-2'>
+      <div className='pt-3'>
         <div className="order-form-container mt-2">
           <h2 className="order-form-title mt-4">Place Your Order</h2>
           <form onSubmit={handleSubmit} className="order-form">
