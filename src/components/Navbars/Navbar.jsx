@@ -5,47 +5,59 @@ import './Navbar.css';
 
 function Navbar() {
   const handleNavItemClick = () => {
-    const navbarToggler = document.querySelector('.navbar-toggler');
     const navbarCollapse = document.querySelector('.navbar-collapse');
+    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+      navbarCollapse.classList.remove('show'); // Close the navbar after clicking a link
+    }
+  };
 
-    if (navbarToggler && navbarCollapse.classList.contains('show')) {
-      navbarToggler.click(); // Close navbar after clicking a link
+  const handleNavbarBrandClick = () => {
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    if (navbarCollapse) {
+      navbarCollapse.classList.toggle('show'); // Toggle navbar visibility on brand click
     }
   };
 
   return (
     <nav className="navbar navbar-expand-lg fixed-top navbar-light">
       <div className="container">
-        <Link className="navbar-brand" to="/">
+        <Link
+          className="navbar-brand mx-auto"
+          to="#"
+          onClick={handleNavbarBrandClick} // Toggles the navbar visibility
+        >
           The Momo Bar Sangamner
         </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon">☰</span>
-        </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav mx-auto">
             <li className="nav-item mx-2">
-              <Link className="nav-link" to="/" onClick={handleNavItemClick}>Home</Link>
+              <Link className="nav-link" to="/" onClick={handleNavItemClick}>
+                Home
+              </Link>
             </li>
             <li className="nav-item mx-2">
-              <Link className="nav-link" to="/about" onClick={handleNavItemClick}>About</Link>
+              <Link className="nav-link" to="/about" onClick={handleNavItemClick}>
+                About
+              </Link>
             </li>
             <li className="nav-item mx-2">
-              <Link className="nav-link" to="/menu" onClick={handleNavItemClick}>Menu</Link>
+              <Link className="nav-link" to="/menu" onClick={handleNavItemClick}>
+                Menu
+              </Link>
             </li>
             <li className="nav-item mx-2">
-              <Link className="nav-link" to="/momosGallery" onClick={handleNavItemClick}>Momos Gallery</Link>
+              <Link
+                className="nav-link"
+                to="/momosGallery"
+                onClick={handleNavItemClick}
+              >
+                Momos Gallery
+              </Link>
             </li>
             <li className="nav-item mx-2">
-              <Link className="nav-link" to="/ourStory" onClick={handleNavItemClick}>Our Story</Link>
+              <Link className="nav-link" to="/ourStory" onClick={handleNavItemClick}>
+                Our Story
+              </Link>
             </li>
           </ul>
           <div className="d-flex mt-2 mt-lg-0">

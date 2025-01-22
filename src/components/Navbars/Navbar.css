@@ -1,46 +1,41 @@
-/* Navbar Style */
+/* Navbar Styles */
 .navbar {
   background-color: white;
   border-bottom: 1px solid gainsboro;
   padding: 0.5rem 1rem;
 }
-
-.navbar .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.navbar .navbar-brand {
-  color: black;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.navbar .navbar-toggler {
-  border: none;
-  font-size: 1.5rem;
-  color: black;
-  padding: 0;
-}
-
-.navbar .navbar-toggler-icon {
-  background-image: none;
-  content: '\2630'; /* Hamburger icon */
-  font-size: 1.5rem;
-  color: black;
-}
-
 .navbar .nav-link {
   color: black;
   font-size: 16px;
   font-weight: bold;
 }
 
-.navbar .nav-link:hover,
+.navbar .nav-link:hover {
+  color: green;
+}
+
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar .navbar-brand {
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .navbar .navbar-brand:hover {
   color: green;
 }
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
 
 /* Buttons */
 .btn-primary {
@@ -58,7 +53,6 @@
 .d-flex {
   justify-content: center;
   gap: 6px;
-  
 }
 
 /* Mobile Responsiveness */
@@ -77,7 +71,7 @@
   }
 
   .d-flex .btn {
-    width: 100%;
+    width: 75%;
   }
 }
 
