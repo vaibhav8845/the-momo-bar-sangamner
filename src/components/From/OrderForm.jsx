@@ -105,9 +105,9 @@ const OrderForm = () => {
     <>
           <ToastContainer />
 
-      <div className='mt-2'>
-        <div className="order-form-container">
-          <h2 className="order-form-title mt-1">Place Your Order</h2>
+      <div className='pt-1'>
+        <div className="order-form-container mt-2">
+          <h2 className="order-form-title mt-4">Place Your Order</h2>
           <form onSubmit={handleSubmit} className="order-form">
             <div className="form-group">
               <label htmlFor="customerName">Customer Name (Optional)</label>
