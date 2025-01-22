@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/the-momo-bar-sangamner/static/css/main.05c1632d.css",
-    "main.js": "/the-momo-bar-sangamner/static/js/main.880c5b87.js",
+    "main.js": "/the-momo-bar-sangamner/static/js/main.0be4b5e3.js",
     "static/js/239.841917c2.chunk.js": "/the-momo-bar-sangamner/static/js/239.841917c2.chunk.js",
     "static/js/213.9bd0df0b.chunk.js": "/the-momo-bar-sangamner/static/js/213.9bd0df0b.chunk.js",
     "static/js/732.89a55ea8.chunk.js": "/the-momo-bar-sangamner/static/js/732.89a55ea8.chunk.js",
     "static/js/453.ac766abd.chunk.js": "/the-momo-bar-sangamner/static/js/453.ac766abd.chunk.js",
     "index.html": "/the-momo-bar-sangamner/index.html",
     "main.05c1632d.css.map": "/the-momo-bar-sangamner/static/css/main.05c1632d.css.map",
-    "main.880c5b87.js.map": "/the-momo-bar-sangamner/static/js/main.880c5b87.js.map",
+    "main.0be4b5e3.js.map": "/the-momo-bar-sangamner/static/js/main.0be4b5e3.js.map",
     "239.841917c2.chunk.js.map": "/the-momo-bar-sangamner/static/js/239.841917c2.chunk.js.map",
     "213.9bd0df0b.chunk.js.map": "/the-momo-bar-sangamner/static/js/213.9bd0df0b.chunk.js.map",
     "732.89a55ea8.chunk.js.map": "/the-momo-bar-sangamner/static/js/732.89a55ea8.chunk.js.map",
@@ -16,6 +16,6 @@
   },
   "entrypoints": [
     "static/css/main.05c1632d.css",
-    "static/js/main.880c5b87.js"
+    "static/js/main.0be4b5e3.js"
   ]
 }
