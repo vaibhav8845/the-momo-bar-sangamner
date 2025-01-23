@@ -3,6 +3,7 @@ import axios from 'axios';
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable'; // Import the autoTable plugin
 import './ShowData.css';
+import {  FaTrash } from 'react-icons/fa'; // Import icons for edit and delete
 
 function ShowData() {
   const [orders, setOrders] = useState([]);
@@ -54,9 +55,26 @@ function ShowData() {
     doc.save('customer_orders.pdf');
   };
 
+  // Function to handle delete order
+  const handleDelete = (orderId) => {
+    axios
+      .delete(`https://shop-8f8o.onrender.com/api/order/${orderId}`)
+      .then((response) => {
+        setOrders(orders.filter(order => order._id !== orderId)); // Remove the deleted order from the state
+        alert('Order deleted successfully');
+      })
+      .catch((error) => {
+        console.error('Error deleting order:', error);
+        alert('Error deleting order');
+      });
+  };
+
+  // Function to handle edit order (you can redirect to an edit page or open a modal)
+
+
   return (
     <div className="container table-container mt-5">
-      <h2 className="text-center  text-dark  ">Customer Orders</h2>
+      <h2 className="text-center text-dark">Customer Orders</h2>
       <div className="table-responsive">
         <table className="table order-table">
           <thead>
@@ -69,6 +87,7 @@ function ShowData() {
               <th>Dish</th>
               <th>Quantity</th>
               <th>Total</th>
+              <th>Actions</th> {/* Added Actions column */}
             </tr>
           </thead>
           <tbody>
@@ -76,7 +95,7 @@ function ShowData() {
               const rateValue = parseFloat(order.rate.replace(/[₹,]/g, '')) || 0;
               const total = rateValue * order.quantity;
               return (
-                <tr key={index}>
+                <tr key={order._id}>
                   <td>{index + 1}</td>
                   <td>{order.customerName}</td>
                   <td>{order.phoneNumber}</td>
@@ -85,6 +104,11 @@ function ShowData() {
                   <td>{order.dish}</td>
                   <td>{order.quantity}</td>
                   <td>₹{total.toFixed(2)}</td>
+                  <td>
+                  
+
+                      <FaTrash onClick={() => handleDelete(order._id)} className="delete-btn" /> {/* Delete icon */}
+                  </td>
                 </tr>
               );
             })}

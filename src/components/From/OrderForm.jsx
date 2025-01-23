@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './OrderForm.css'; // External CSS for styling
-import axios from 'axios'; // Import axios for HTTP requests
+import './OrderForm.css';
+import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -11,14 +11,15 @@ const OrderForm = () => {
   const [rate, setRate] = useState('');
   const [dish, setDish] = useState('');
   const [quantity, setQuantity] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const momosOptions = [
-    { type: 'Veg Momos', rate: '₹80', dish: 'Steamed Veg Momos' },
-    { type: 'Veg peri peri momos', rate: '₹90', dish: 'Steamed Veg Momos' },
-    { type: 'Paneer Momos', rate: '₹90', dish: 'Steamed Paneer Momos' },
-    { type: 'Paneer peri peri momos', rate: '₹100', dish: 'Steamed Paneer Momos' },
-    { type: 'Paneer Kurkure momos', rate: '₹100', dish: 'Steamed Paneer Momos' },
-    { type: 'Cheesy burst momos', rate: '₹110', dish: 'Steamed Cheesy Momos' },
+    { type: 'Veg Momos', rate: 80, dish: 'Steamed Veg Momos' },
+    { type: 'Veg peri peri momos', rate: 90, dish: 'Steamed Veg Momos' },
+    { type: 'Paneer Momos', rate: 90, dish: 'Steamed Paneer Momos' },
+    { type: 'Paneer peri peri momos', rate: 100, dish: 'Steamed Paneer Momos' },
+    { type: 'Paneer Kurkure momos', rate: 100, dish: 'Steamed Paneer Momos' },
+    { type: 'Cheesy burst momos', rate: 110, dish: 'Steamed Cheesy Momos' },
   ];
 
   const handleMomosChange = (event) => {
@@ -26,19 +27,9 @@ const OrderForm = () => {
     setMomosType(selectedMomos);
 
     const selectedOption = momosOptions.find(option => option.type === selectedMomos);
-
     if (selectedOption) {
-      let newRate = parseInt(selectedOption.rate.replace('₹', ''), 10); // Ensure base rate is numeric
-      setRate(`₹${newRate}`);
-
-      if (selectedMomos.includes("Fried")) {
-        setDish('Fried');
-        newRate -= 10; // Discount for Fried
-      } else {
-        setDish('Steamed');
-      }
-
-      setRate(`₹${newRate}`);
+      setRate(selectedOption.rate);
+      setDish('Steamed'); // Default dish type
     } else {
       setRate('');
       setDish('');
@@ -46,45 +37,72 @@ const OrderForm = () => {
   };
 
   const handleQuantityChange = (e) => {
-    setQuantity(e.target.value);
+    const value = Number(e.target.value);
+    if (value >= 1) setQuantity(value); // Ensure valid quantity
   };
 
-  const handleSubmit = (e) => {
+  const handleDishChange = (e) => {
+    const selectedDish = e.target.value;
+    setDish(selectedDish);
+
+    const selectedOption = momosOptions.find(option => option.type === momosType);
+    if (selectedOption) {
+      const baseRate = selectedOption.rate;
+      const finalRate = selectedDish === 'Fried' ? baseRate + 10 : baseRate;
+      setRate(finalRate);
+    } else {
+      toast.error('Please select a Momos type first.');
+    }
+  };
+
+  const validatePhoneNumber = (number) => {
+    const phoneRegex = /^[6-9]\d{9}$/;
+    return phoneRegex.test(number);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validate required fields
+    if (!momosType || !dish || quantity < 1) {
+      toast.error('Please fill out all required fields correctly.');
+      return;
+    }
+
+    // Only validate phone number if it is entered
+    if (phoneNumber && !validatePhoneNumber(phoneNumber)) {
+      toast.error('Invalid phone number format.');
+      return;
+    }
+
     const orderData = {
-      customerName,
-      phoneNumber: phoneNumber || null,
+      customerName: customerName || 'Anonymous', // Default to 'Anonymous' if empty
+      phoneNumber: phoneNumber || 8862088631, // Optional, so null if empty
       momosType,
       rate,
       dish,
       quantity,
     };
 
-    // Ensure numeric value for rate
-    const numericRate = parseInt(rate.replace('₹', ''), 10) || 0;
-    const totalPrice = numericRate * quantity; // Calculate total price
+    setIsSubmitting(true);
 
-    console.log('Order Data:', orderData); // Log data being sent
-
-    // Send the order to the backend using Axios
-    axios.post('https://shop-8f8o.onrender.com/api/orders', orderData)
-      .then(response => {
-        console.log('Response:', response); // Check response for debugging
-        toast.success(`Order placed successfully! Total Price: ₹${totalPrice}`, {
-          autoClose: 10000, // Show the toast for 10 seconds
-        });
-        handleReset();
-      })
-      .catch(error => {
-        console.error('API Error:', error); // Log full error object
-        if (error.response) {
-          console.error('Error Response Data:', error.response.data); // Log the response data from API
-          toast.error(`Failed to place order: ${error.response.data.message || 'Unknown error'}`);
-        } else {
-          toast.error('Failed to place order');
-        }
+    try {
+      const response = await axios.post('https://shop-8f8o.onrender.com/api/order', orderData, {
+        headers: { 'Content-Type': 'application/json' },
       });
+
+      if (response.status >= 200 && response.status < 300) {
+        toast.success(`Order placed successfully! Total Price: ₹${rate * quantity}`);
+        handleReset();
+      } else {
+        throw new Error(`Unexpected response: ${response.status}`);
+      }
+    } catch (error) {
+      console.error('Order submission error:', error.response?.data || error.message);
+      toast.error(`Failed to place order. Error: ${error.response?.data?.message || error.message}`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
@@ -99,7 +117,7 @@ const OrderForm = () => {
   return (
     <>
       <ToastContainer />
-      <div className='pt-5'>
+      <div className="pt-5">
         <div className="order-form-container mt-3">
           <h2 className="order-form-title mt-3">Place Your Order</h2>
           <form onSubmit={handleSubmit} className="order-form">
@@ -113,7 +131,6 @@ const OrderForm = () => {
                 placeholder="Enter your name (Optional)"
               />
             </div>
-
             <div className="form-group">
               <label htmlFor="phoneNumber">Phone Number (Optional)</label>
               <input
@@ -124,37 +141,35 @@ const OrderForm = () => {
                 placeholder="Enter your phone number (Optional)"
               />
             </div>
-
             <div className="form-group">
               <label htmlFor="momosType">Select Momos Type</label>
               <select id="momosType" value={momosType} onChange={handleMomosChange} required>
                 <option value="">Select Momos Type</option>
                 {momosOptions.map((option, index) => (
-                  <option key={index} value={option.type}>{option.type}</option>
+                  <option key={index} value={option.type}>
+                    {option.type}
+                  </option>
                 ))}
               </select>
             </div>
-
             <div className="form-group">
               <label htmlFor="dish">Select Dish Type</label>
-              <select id="dish" value={dish} onChange={(e) => setDish(e.target.value)} required>
+              <select id="dish" value={dish} onChange={handleDishChange} required>
                 <option value="">Select Dish Type</option>
                 <option value="Fried">Fried</option>
                 <option value="Steamed">Steamed</option>
               </select>
             </div>
-
             <div className="form-group">
               <label htmlFor="rate">Rate</label>
               <input
                 type="text"
                 id="rate"
-                value={rate}
+                value={`₹${rate}`}
                 readOnly
                 placeholder="Rate will auto-fill"
               />
             </div>
-
             <div className="form-group">
               <label htmlFor="quantity">Quantity</label>
               <input
@@ -166,9 +181,12 @@ const OrderForm = () => {
                 required
               />
             </div>
-
-            <button type="submit" className="submit-button">Submit Order</button>
-            <button type="button" className="reset-button" onClick={handleReset}>Reset</button>
+            <button type="submit" className="submit-button" disabled={isSubmitting}>
+              {isSubmitting ? 'Submitting...' : 'Submit Order'}
+            </button>
+            <button type="button" className="reset-button" onClick={handleReset}>
+              Reset
+            </button>
           </form>
         </div>
       </div>

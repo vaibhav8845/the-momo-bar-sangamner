@@ -15,6 +15,9 @@
   border-collapse: collapse;
   font-size: 16px; /* Increase font size for readability */
 }
+.delete-btn{
+  color: black;
+}
 
 /* Table headers and cells */
 .order-table th,
