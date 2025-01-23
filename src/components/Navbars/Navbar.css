@@ -55,6 +55,7 @@
   gap: 6px;
 }
 
+
 /* Mobile Responsiveness */
 @media (max-width: 991px) {
   .navbar .navbar-collapse {

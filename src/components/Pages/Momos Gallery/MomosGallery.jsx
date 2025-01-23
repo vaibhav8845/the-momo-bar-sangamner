@@ -25,7 +25,7 @@ function MomosGallery() {
 
     <div className="image-grid">
       {images.map((image, index) => (
-        <a href={image.link} key={index}>
+        <a  key={index}>
           <img src={image.src} alt={`Momo ${index + 1}`} />
         </a>
       ))}
