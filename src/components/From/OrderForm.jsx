@@ -28,13 +28,14 @@ const OrderForm = () => {
     const selectedOption = momosOptions.find(option => option.type === selectedMomos);
 
     if (selectedOption) {
-      let newRate = parseInt(selectedOption.rate.replace('₹', ''));
+      let newRate = parseInt(selectedOption.rate.replace('₹', ''), 10); // Ensure base rate is numeric
+      setRate(`₹${newRate}`);
 
       if (selectedMomos.includes("Fried")) {
-        setDish('Steamed');
-        newRate -= 10;
-      } else {
         setDish('Fried');
+        newRate -= 10; // Discount for Fried
+      } else {
+        setDish('Steamed');
       }
 
       setRate(`₹${newRate}`);
@@ -46,22 +47,6 @@ const OrderForm = () => {
 
   const handleQuantityChange = (e) => {
     setQuantity(e.target.value);
-  };
-
-  const handleDishChange = (e) => {
-    const selectedDish = e.target.value;
-    setDish(selectedDish);
-
-    const selectedOption = momosOptions.find(option => option.type === momosType);
-    if (selectedOption) {
-      let newRate = parseInt(selectedOption.rate.replace('₹', ''));
-
-      if (selectedDish === 'Steamed') {
-        newRate -= 10;
-      }
-
-      setRate(`₹${newRate}`);
-    }
   };
 
   const handleSubmit = (e) => {
@@ -76,19 +61,29 @@ const OrderForm = () => {
       quantity,
     };
 
-    const numericRate = parseInt(rate.replace('₹', '')) || 0;
+    // Ensure numeric value for rate
+    const numericRate = parseInt(rate.replace('₹', ''), 10) || 0;
     const totalPrice = numericRate * quantity; // Calculate total price
 
+    console.log('Order Data:', orderData); // Log data being sent
+
+    // Send the order to the backend using Axios
     axios.post('https://shop-8f8o.onrender.com/api/orders', orderData)
       .then(response => {
+        console.log('Response:', response); // Check response for debugging
         toast.success(`Order placed successfully! Total Price: ₹${totalPrice}`, {
           autoClose: 10000, // Show the toast for 10 seconds
         });
         handleReset();
       })
       .catch(error => {
-        toast.error('Failed to place order');
-        console.error(error);
+        console.error('API Error:', error); // Log full error object
+        if (error.response) {
+          console.error('Error Response Data:', error.response.data); // Log the response data from API
+          toast.error(`Failed to place order: ${error.response.data.message || 'Unknown error'}`);
+        } else {
+          toast.error('Failed to place order');
+        }
       });
   };
 
@@ -103,8 +98,7 @@ const OrderForm = () => {
 
   return (
     <>
-          <ToastContainer />
-
+      <ToastContainer />
       <div className='pt-5'>
         <div className="order-form-container mt-3">
           <h2 className="order-form-title mt-3">Place Your Order</h2>
@@ -143,7 +137,7 @@ const OrderForm = () => {
 
             <div className="form-group">
               <label htmlFor="dish">Select Dish Type</label>
-              <select id="dish" value={dish} onChange={handleDishChange} required>
+              <select id="dish" value={dish} onChange={(e) => setDish(e.target.value)} required>
                 <option value="">Select Dish Type</option>
                 <option value="Fried">Fried</option>
                 <option value="Steamed">Steamed</option>
@@ -178,7 +172,6 @@ const OrderForm = () => {
           </form>
         </div>
       </div>
-
     </>
   );
 };
