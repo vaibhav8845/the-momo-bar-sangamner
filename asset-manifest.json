@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/the-momo-bar-sangamner/static/css/main.e92d46ea.css",
-    "main.js": "/the-momo-bar-sangamner/static/js/main.8a78c745.js",
+    "main.css": "/the-momo-bar-sangamner/static/css/main.37b25a9f.css",
+    "main.js": "/the-momo-bar-sangamner/static/js/main.c8af4b8d.js",
     "static/js/239.841917c2.chunk.js": "/the-momo-bar-sangamner/static/js/239.841917c2.chunk.js",
     "static/js/213.9bd0df0b.chunk.js": "/the-momo-bar-sangamner/static/js/213.9bd0df0b.chunk.js",
     "static/js/732.89a55ea8.chunk.js": "/the-momo-bar-sangamner/static/js/732.89a55ea8.chunk.js",
     "static/js/453.ac766abd.chunk.js": "/the-momo-bar-sangamner/static/js/453.ac766abd.chunk.js",
     "index.html": "/the-momo-bar-sangamner/index.html",
-    "main.e92d46ea.css.map": "/the-momo-bar-sangamner/static/css/main.e92d46ea.css.map",
-    "main.8a78c745.js.map": "/the-momo-bar-sangamner/static/js/main.8a78c745.js.map",
+    "main.37b25a9f.css.map": "/the-momo-bar-sangamner/static/css/main.37b25a9f.css.map",
+    "main.c8af4b8d.js.map": "/the-momo-bar-sangamner/static/js/main.c8af4b8d.js.map",
     "239.841917c2.chunk.js.map": "/the-momo-bar-sangamner/static/js/239.841917c2.chunk.js.map",
     "213.9bd0df0b.chunk.js.map": "/the-momo-bar-sangamner/static/js/213.9bd0df0b.chunk.js.map",
     "732.89a55ea8.chunk.js.map": "/the-momo-bar-sangamner/static/js/732.89a55ea8.chunk.js.map",
     "453.ac766abd.chunk.js.map": "/the-momo-bar-sangamner/static/js/453.ac766abd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e92d46ea.css",
-    "static/js/main.8a78c745.js"
+    "static/css/main.37b25a9f.css",
+    "static/js/main.c8af4b8d.js"
   ]
 }
