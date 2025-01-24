@@ -11,6 +11,36 @@
     font-weight: bold;
     margin-bottom: 20px;
   }
+  .floating-icons {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+  }
+  
+  .whatsapp-icon,
+  .phone-icon {
+    font-size: 2.5rem;
+    color: #25d366; /* WhatsApp green color */
+    background-color: white;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .phone-icon {
+    color: #007bff; /* Call icon color */
+  }
+  
+  .whatsapp-icon:hover,
+  .phone-icon:hover {
+    transform: scale(1.1);
+  }
+  
   
   .momos-description {
     font-size: 1.2rem;
