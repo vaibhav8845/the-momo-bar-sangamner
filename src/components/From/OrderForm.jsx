@@ -14,12 +14,16 @@ const OrderForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const momosOptions = [
-    { type: "Veg Momos", rate: 80 },
-    { type: "Veg peri peri momos", rate: 90 },
-    { type: "Paneer Momos", rate: 90 },
-    { type: "Paneer peri peri momos", rate: 100 },
-    { type: "Paneer Kurkure momos", rate: 100 },
-    { type: "Cheesy burst momos", rate: 110 },
+    { type: "Veg Momos", rate: 60 },
+    { type: "Veg peri peri momos", rate: 70 },
+    { type: "Paneer Momos", rate: 70 },
+    { type: "Paneer peri peri momos", rate: 80 },
+    { type: "Paneer Kurkure momos", rate: 80 },
+    { type: "Cheesy burst momos", rate: 90 },
+    { type: "Veg cheese momos", rate: 90 },
+    { type: "Paneer cheese Momos", rate: 100 },
+
+
   ];
 
   // जब Momos type चेंज करें
